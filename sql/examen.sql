@@ -1,8 +1,9 @@
 DELIMITER //
+drop table if exists tablon_fichero cascade;
 drop table if exists fichero cascade;
 drop table if exists tablon cascade;
 drop table if exists usuario cascade;
-drop table if exists tablon_fichero cascade;
+
 //
 
 create table usuario(
@@ -39,16 +40,16 @@ alter table tablon_fichero add constraint fk_tablon_fichero_tablon foreign key(i
 //
 
 insert into fichero values (1,'foto.jpg','asadfsdfhasasddafsaasjasdfkjhasdkjfhkajshdfkajsdhfkjasd');
-INSERT INTO fichero values (1,'foto.jpg','asdfjklhcxdjsfka');
-INSERT INTO fichero values (2,'imagen.png','asdfghjklxcvbnm');
-INSERT INTO fichero values (3,'video.mp4','asdfghjklqwertyuiop');
-INSERT INTO fichero values (4,'documento.pdf','asdfghjklpoiuytrewq');
-INSERT INTO fichero values (5,'hoja de cálculo.xls','asdfghjkluiopasdfgh');
-INSERT INTO fichero values (6,'presentación.ppt','asdfghjklasdfghjkl');
-INSERT INTO fichero values (7,'audio.mp3','asdfghjklasdfghjkl');
-INSERT INTO fichero values (8,'vídeo.avi','asdfghjklasdfghjkl');
-INSERT INTO fichero values (9,'imagen GIF.gif','asdfghjklasdfghjkl');
-INSERT INTO fichero values (10,'fichero.txt','asdfghjklaaasdfghjkl');
+INSERT INTO fichero values (2,'foto.jpg','asdfjklhcxdjsfka');
+INSERT INTO fichero values (3,'imagen.png','asdfghjklxcvbnm');
+INSERT INTO fichero values (4,'video.mp4','asdfghjklqwertyuiop');
+INSERT INTO fichero values (5,'documento.pdf','asdfghjklpoiuytrewq');
+INSERT INTO fichero values (6,'hoja de cálculo.xls','asdfghjkluiopasdfgh');
+INSERT INTO fichero values (7,'presentación.ppt','asdfghjklasdfghjkl');
+INSERT INTO fichero values (8,'audio.mp3','asdfghjklasdfghjkl');
+INSERT INTO fichero values (9,'vídeo.avi','asdfghjklasdfghjkl');
+INSERT INTO fichero values (10,'imagen GIF.gif','asdfghjklasdfghjkl');
+INSERT INTO fichero values (11,'fichero.txt','asdfghjklaaasdfghjkl');
 
 
 //
