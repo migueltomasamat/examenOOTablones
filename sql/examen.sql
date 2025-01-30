@@ -1,52 +1,54 @@
 DELIMITER //
-drop table if exists ingrediente cascade;
-drop table if exists receta cascade;
+drop table if exists fichero cascade;
+drop table if exists tablon cascade;
 drop table if exists usuario cascade;
 drop table if exists receta_ingrediente cascade;
 //
 
 create table usuario(
-    id integer,
-    mail varchar(255),
-    tarjeta varchar(16)
+                        id integer,
+                        mail varchar(255)
 );
 //
-create table ingrediente(
-    id integer,
-    nombre varchar(100),
-    calorias float
+create table fichero(
+                        id integer,
+                        nombre varchar(100),
+                        contenido varchar(255)
 );
 //
-create table receta(
-    id integer,
-    nombre varchar(100),
-    fecha_creacion date,
-    id_usuario integer
+create table tablon(
+                       id integer,
+                       nombre varchar(100),
+                       fecha_creacion date,
+                       id_usuario integer
 );
 //
-create table receta_ingrediente(
-    id_receta integer,
-    id_ingrediente integer
+create table tablon_fichero(
+                               id_tablon integer,
+                               id_fichero integer
 )
 //
 alter table usuario add constraint pk_usuario primary key (id);
-alter table receta add constraint pk_receta primary key (id);
-alter table ingrediente add constraint pk_ingrediente primary key(id);
-alter table receta_ingrediente add constraint pk_receta_usuario primary key(id_receta,id_ingrediente);
+alter table tablon add constraint pk_tablon primary key (id);
+alter table fichero add constraint pk_fichero primary key(id);
+alter table tablon_fichero add constraint pk_tablon_fichero primary key(id_tablon,id_fichero);
 //
-alter table receta add constraint fk_receta_usuario foreign key (id_usuario) references usuario(id);
-alter table receta_ingrediente add constraint fk_receta_ingrediente_ingrediente foreign key(id_ingrediente) references ingrediente(id);
-alter table receta_ingrediente add constraint fk_receta_ingrediente_receta foreign key(id_receta) references ingrediente(id);
+alter table tablon add constraint fk_tablon_usuario foreign key (id_usuario) references usuario(id);
+alter table tablon_fichero add constraint fk_tablon_fichero_fichero foreign key(id_fichero) references fichero(id);
+alter table tablon_fichero add constraint fk_tablon_fichero_tablon foreign key(id_tablon) references tablon(id);
 //
 
-insert into ingrediente values (1,'Pimiento',100);
-INSERT INTO ingrediente VALUES (2, 'Tomate', 250);
-INSERT INTO ingrediente VALUES (3, 'Queso Cheddar', 75);
-INSERT INTO ingrediente VALUES (4, 'Ajo', 3);
-INSERT INTO ingrediente VALUES (5, 'Pepino', 150);
-INSERT INTO ingrediente VALUES (6, 'Espinaca', 50);
-INSERT INTO ingrediente VALUES (7, 'Aceite de Oliva', 40);
-INSERT INTO ingrediente VALUES (8, 'Batata', 200);
-INSERT INTO ingrediente VALUES (9, 'Jamón', 120);
-INSERT INTO ingrediente VALUES (10, 'Cebolla', 5);
+insert into fichero values (1,'foto.jpg','asadfsdfhasasddafsaasjasdfkjhasdkjfhkajshdfkajsdhfkjasd');
+INSERT INTO fichero values (1,'foto.jpg','asdfjklhcxdjsfka');
+INSERT INTO fichero values (2,'imagen.png','asdfghjklxcvbnm');
+INSERT INTO fichero values (3,'video.mp4','asdfghjklqwertyuiop');
+INSERT INTO fichero values (4,'documento.pdf','asdfghjklpoiuytrewq');
+INSERT INTO fichero values (5,'hoja de cálculo.xls','asdfghjkluiopasdfgh');
+INSERT INTO fichero values (6,'presentación.ppt','asdfghjklasdfghjkl');
+INSERT INTO fichero values (7,'audio.mp3','asdfghjklasdfghjkl');
+INSERT INTO fichero values (8,'vídeo.avi','asdfghjklasdfghjkl');
+INSERT INTO fichero values (9,'imagen GIF.gif','asdfghjklasdfghjkl');
+INSERT INTO fichero values (10,'fichero.txt','asdfghjklaaasdfghjkl');
+
+
 //
