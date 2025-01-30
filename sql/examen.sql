@@ -2,7 +2,7 @@ DELIMITER //
 drop table if exists fichero cascade;
 drop table if exists tablon cascade;
 drop table if exists usuario cascade;
-drop table if exists receta_ingrediente cascade;
+drop table if exists tablon_fichero cascade;
 //
 
 create table usuario(
